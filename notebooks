@@ -1,0 +1,238 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPzrrgNZzR2N9hYBVSEQMbv",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/arogya-gyawali/brainscan_AI/blob/main/notebooks\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JmlJTr04s4mZ",
+        "outputId": "655781a0-9019-4f21-b0b0-f88aa6ca6887"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(\"/content/drive\", force_remount=True).\n"
+          ]
+        }
+      ],
+      "source": [
+        "from google.colab import drive\n",
+        "drive.mount('/content/drive')"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!ls /content/drive/MyDrive/"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "nQpRKjYkufiJ",
+        "outputId": "22e99a9c-fb38-48ea-c0a2-b0c09a4b8f7c"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            " 01-data-exploration.ipynb\n",
+            "'15735695836008575951666809093715 - AAROGYA GYAWALI.jpg'\n",
+            "'2022 4-year Financial Planning Worksheet (1).xlsx'\n",
+            "'2022 4-year Financial Planning Worksheet (2).xlsx'\n",
+            "'2022 4-year Financial Planning Worksheet.xlsx'\n",
+            "'aamahajur flight card.gdoc'\n",
+            "'aamahajur flight help card.gdoc'\n",
+            "'ASAM HW 1 (1).gdoc'\n",
+            "'ASAM HW 1.docx'\n",
+            "'ASAM HW 1.gdoc'\n",
+            "'ASAM Mid term paper.gdoc'\n",
+            "'[ \\begin{array}{c|cccccc} & A & B & C & D & E & F....gsheet'\n",
+            " BIOLOGY-1.gdoc\n",
+            " BrainScanAI\n",
+            "'Chem charles law.gsheet'\n",
+            "'Chem lab.gsheet'\n",
+            " Classroom\n",
+            "'Classwork #1.docx'\n",
+            "'Classwork #1.gdoc'\n",
+            "'Colab Notebooks'\n",
+            "'Cookie Chachi Hours.gsheet'\n",
+            "'Course 1 Week 1 Glossary | DA terms and definitions.gdoc'\n",
+            "'DASHAIN VIDEO'\n",
+            "'Data chart template.gsheet'\n",
+            "'Evidence chart that describes a 17th century New England WItch Based on Bridget Bishop’s Trial Records.gdoc'\n",
+            "'Evidentiary Phrase.gdoc'\n",
+            "'Final portfolio.gdoc'\n",
+            "'Google Earth'\n",
+            "'HIST 14 A Mid Term.gdoc'\n",
+            "'HISTORY ROUGH FINAL.gdoc'\n",
+            " HPE.gdoc\n",
+            " IMG_20190914_104641.jpg\n",
+            " Ionic\n",
+            "'ISFAA 2021-22 (1).gdoc'\n",
+            "'ISFAA 2021-22.gdoc'\n",
+            " JavaCheatsheet.gdoc\n",
+            "'Learning Log Template: Consider how data analysts approach tasks.gdoc'\n",
+            "'Learning Log Template: Explore data from your daily life.gdoc'\n",
+            "'Learning Log Template: Reflect on your skills and expectations.gdoc'\n",
+            "'Learning Log Template: Think about data in daily life.gdoc'\n",
+            "'Module 10 writing.gdoc'\n",
+            "'NEW OQ.docx'\n",
+            "'NY Spending.gsheet'\n",
+            "'Photos waterfall 2021 10 23'\n",
+            "'PPM experiment.gsheet'\n",
+            "'REU TO APPLY FOR IN WINTER FOR SUMMER.gsheet'\n",
+            "'Saved from Chrome'\n",
+            "'Shortlisting colleges to apply in Fall 2025.gdoc'\n",
+            " Snapchat-1668789731.jpg\n",
+            " spending.gsheet\n",
+            "'Sprintax Emails 2022 - First Email.docx'\n",
+            "'Taava Kitchen Hours.gsheet'\n",
+            "'The Universe.gslides'\n",
+            "'TMP-00260 FC_Operational Qualification-Performance Qualification (OQ-PQ) Protocol Template.docx'\n",
+            " Tori\n",
+            "'TU ISFAA 2022-23 (1).gdoc'\n",
+            "'TU ISFAA 2022-23.gdoc'\n",
+            "'Untitled document (1).gdoc'\n",
+            "'Untitled document (2).gdoc'\n",
+            "'Untitled document (3).gdoc'\n",
+            "'Untitled document (4).gdoc'\n",
+            "'Untitled document (5).gdoc'\n",
+            "'Untitled document (6).gdoc'\n",
+            "'Untitled document (7).gdoc'\n",
+            "'Untitled document (8).gdoc'\n",
+            "'Untitled document (9).gdoc'\n",
+            "'Untitled document.gdoc'\n",
+            "'Untitled drawing.gdraw'\n",
+            "'Untitled spreadsheet (1).gsheet'\n",
+            "'Untitled spreadsheet (2).gsheet'\n",
+            "'Untitled spreadsheet (3).gsheet'\n",
+            "'Untitled spreadsheet (4).gsheet'\n",
+            "'Untitled spreadsheet (5).gsheet'\n",
+            "'Untitled spreadsheet.gsheet'\n",
+            "'Uribe spot hours.gsheet'\n",
+            "'XII Physics 2078 ( Pre Board).gdoc'\n",
+            "'Z-Transfer-in Form-Academic.pdf'\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!ls /content/drive/MyDrive/BrainScanAI/yes | head\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "AtVv337yugYb",
+        "outputId": "935cb70a-0f8c-408e-f0c7-e3ed77ccc797"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Y100.JPG\n",
+            "Y101.jpg\n",
+            "Y102.jpg\n",
+            "Y103.jpg\n",
+            "Y104.jpg\n",
+            "Y105.jpg\n",
+            "Y106.jpg\n",
+            "Y107.jpg\n",
+            "Y108.jpg\n",
+            "Y109.JPG\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#We are setting the file paths for the images with and without tumor as it is already separated into two different folders\n",
+        "import os\n",
+        "\n",
+        "tumor_path = '/content/drive/MyDrive/BrainScanAI/yes'\n",
+        "normal_path = '/content/drive/MyDrive/BrainScanAI/no'"
+      ],
+      "metadata": {
+        "id": "OaLcVevOukkL"
+      },
+      "execution_count": 7,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Getting a count of files inside the folder. Here is where the import os is doing its job nicely as we can use the functions of os.\n",
+        "tumor_files = os.listdir(tumor_path)\n",
+        "normal_files = os.listdir(normal_path)\n",
+        "\n",
+        "print(f\"Tumor Images: {len(tumor_files)}\")\n",
+        "print(f\"Normal Images: {len(normal_files)}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "lxcjeh4dyE-N",
+        "outputId": "6366c530-5975-4a6f-c7ff-8c48c799beec"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Tumor Images: 155\n",
+            "Normal Images: 98\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "AjTwhIIsyKl3"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
