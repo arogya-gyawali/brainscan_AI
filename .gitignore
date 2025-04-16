@@ -1,0 +1,10 @@
+*.jpg
+*.png
+*.jpeg
+*.mat
+__pycache__/
+.DS_Store
+.ipynb_checkpoints/
+*.h5
+*.csv
+!metadata.csv
