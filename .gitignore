@@ -1,10 +1,28 @@
+# --- Ignore image and dataset outputs ---
 *.jpg
-*.png
 *.jpeg
+*.png
+*.nii
 *.mat
-__pycache__/
-.DS_Store
-.ipynb_checkpoints/
 *.h5
+*.pth
+*.pkl
 *.csv
-!metadata.csv
+!metadata.csv  # except this one
+
+# --- Ignore system and environment files ---
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+.env
+.env/
+venv/
+.idea/
+.vscode/
+
+# --- Ignore compressed archives ---
+*.zip
+*.tar.gz
+
+# --- Ignore logs and outputs ---
+*.log
