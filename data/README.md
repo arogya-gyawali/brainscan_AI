@@ -24,6 +24,18 @@ This folder contains preprocessed and metadata-linked datasets used for brain tu
 
 ---
 
+## 🧾 Processed Data Access
+
+You can reproduce all processed images (MRI, masks, tumor borders) using the provided notebooks in `/notebooks/data_preprocessing/`.
+
+### 🔗 Sample Output
+To get a feel for the processed data, I have added a small sample set.
+
+📌 **Note**: Due to size constraints, the full dataset is not hosted here.  
+You can regenerate it using the notebooks and the original Figshare `.mat` files and IXI `.nii`. 
+
+---
+
 ## 📌 Usage
 
 Use this metadata file to:
