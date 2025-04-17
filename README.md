@@ -32,15 +32,19 @@ Doctors often struggle to pinpoint tumor location or type from MRIs — especial
 ## 📁 Project Structure
 
 brainscan-ai/
-├── data/           # MRI datasets (will be added later)
-├── notebooks/      # Colab/Jupyter notebooks for model training and testing
-├── models/         # Saved model weights and checkpoints
-├── utils/          # Utility scripts (e.g., data loaders, visualizations)
-├── references/     # Research papers, dataset links, project notes
-├── README.md       # Project overview and documentation
-└── LICENSE         # Open-source license (MIT)
-
----
+├── data/                # Preprocessed data + metadata CSVs
+├── notebooks/           # All steps in the pipeline, well-commented
+│   └── data_prep/
+│       ├── 00_convert_mat_to_png.ipynb             # Tumor images from .mat files
+│       ├── 01_generate_tumor_metadata.ipynb        # Metadata extraction
+│       ├── 02_convert_IXI_to_png.ipynb             # Healthy scans from .nii (IXI)
+│       ├── 03_generate_no_tumor_metadata.ipynb     # Metadata for healthy MRI slices
+│       └── 04_merge_metadata_files.ipynb           # Final merged tumor + no tumor metadata
+├── sample_outputs/      # Preview MRI + border + mask overlays
+├── models/              # (will be added later)
+├── references/          # Papers, links, research notes
+├── README.md            # You're reading it :)
+└── LICENSE              # MIT
 
 ## 🧠 Stack + Tools
 
