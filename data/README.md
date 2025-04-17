@@ -1,46 +1,71 @@
 # 📁 Data Folder – BrainScan AI
 
-This folder contains preprocessed and metadata-linked datasets used for brain tumor detection and segmentation.
+This folder contains all metadata and sample visual outputs used for tumor classification and segmentation. These are processed from the original Figshare `.mat` and IXI `.nii` datasets.
 
 ---
 
-## 🧠 Folder Contents
+## 🧠 Metadata Files
 
 ### 🔹 `tumor_metadata.csv`
-- Metadata for 3064 MRI scans with brain tumors.
-- Each row corresponds to a single image derived from a `.mat` file in the original Figshare dataset.
-- Includes:
-  - `file`: Image filename (e.g., `1102.png`)
-  - `label`: Numeric tumor type (1 = meningioma, 2 = glioma, 3 = pituitary)
-  - `has_mask`: Boolean indicating if a binary mask exists
-  - `tumorBorder`: Coordinates outlining the tumor (used for overlays)
-  - `label_name`: Human-readable tumor type (e.g., `"glioma"`)
+- Metadata for 3064 tumor MRI scans (from `.mat` files).
+- Columns:
+  - `file`: PNG filename
+  - `label`: Tumor class (1 = meningioma, 2 = glioma, 3 = pituitary)
+  - `has_mask`: Boolean flag for mask presence
+  - `tumorBorder`: Border coordinates (used for overlay)
+  - `label_name`: Readable tumor type
 
-## 🧬 Source
+### 🔹 `no_tumor_metadata(1).csv`
+- Metadata for 1743 healthy scans from the IXI `.nii` dataset.
+- Columns:
+  - `file`: PNG slice name
+  - `label`: Always 0 (no tumor)
+  - `source`: Set to `"IXI"`
+  - `slice_index`: Z-slice number from 3D volume
 
-- Data extracted and parsed from the original `.mat` files in the [Figshare Brain Tumor Dataset](https://figshare.com/articles/dataset/brain_tumor_dataset/1512427?file=51340418).
-- Healthy MRI scans extracted from the original '.nii' files in the [IXI dataset- T1 Images](https://brain-development.org/ixi-dataset/?utm_source=chatgpt.com)
-- Tumor masks and borders were extracted using `h5py` for figshare dataset and saved as PNG overlays.
-
----
-
-## 🧾 Processed Data Access
-
-You can reproduce all processed images (MRI, masks, tumor borders) using the provided notebooks in `/notebooks/data_preprocessing/`.
-
-### 🔗 Sample Output
-To get a feel for the processed data, I have added a small sample set.
-
-📌 **Note**: Due to size constraints, the full dataset is not hosted here.  
-You can regenerate it using the notebooks and the original Figshare `.mat` files and IXI `.nii`. 
+### 🔹 `final_merged_metadata.csv`
+- Combined tumor + no-tumor metadata.
+- Contains 4817 rows with unified structure for modeling.
 
 ---
 
-## 📌 Usage
+## 🧬 Data Sources
 
-Use this metadata file to:
-- Link PNG images to tumor types.
-- Load tumor borders for visualization or weak supervision.
-- Prepare datasets for classification, segmentation, or detection tasks.
+- **Tumor Scans**: [Figshare Brain Tumor Dataset](https://figshare.com/articles/dataset/brain_tumor_dataset/1512427?file=51340418)
+- **Healthy Scans**: [IXI T1 Dataset](https://brain-development.org/ixi-dataset/?utm_source=chatgpt.com)
 
 ---
+
+## 🖼️ Sample Image Previews
+
+The following folders include small samples of converted and visualized data:
+
+| Folder               | Description                                |
+|----------------------|--------------------------------------------|
+| `sample_mri/`        | Original grayscale PNGs (tumor scans)      |
+| `sample_mask_overlay/` | Tumor masks overlaid in red                |
+| `sample_border_overlay/` | Tumor borders drawn in red (from `.mat`) |
+| `sample_binary_masks/` | Binary segmentation masks (tumor = white) |
+| `healthy_samples/`   | Converted healthy slices from `.nii` files |
+
+---
+
+## 📌 How to Reproduce
+
+All images and metadata were generated using the notebooks in: /notebooks/data_prep/
+
+
+You can rerun the full pipeline using your own Google Drive or local `.mat` / `.nii` sources.
+
+---
+
+## 🧾 Usage Tips
+
+Use this data to:
+- Train tumor classification or segmentation models
+- Visualize tumor region boundaries or masks
+- Evaluate CNNs or autoencoders using well-aligned ground truth
+
+---
+
+
